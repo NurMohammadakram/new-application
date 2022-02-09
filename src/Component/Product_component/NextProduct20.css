@@ -1,0 +1,12 @@
+.btn-section {
+    margin-top: 20px;
+    text-align: center;
+}
+.btn-section button {
+    padding: 5px 10px;
+    border: none;
+    color: white;
+    background-color: rgb(243, 143, 28);
+    cursor: pointer;
+}
+

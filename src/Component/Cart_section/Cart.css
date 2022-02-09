@@ -1,0 +1,8 @@
+.cart-info {
+    border: 2px solid rgb(243, 143, 28);
+    padding: 10px 20px;
+}
+
+.cart-info-header {
+    text-align: center;
+}
