@@ -18,6 +18,7 @@ img {
 
 .info{
     display: flex;
+    justify-content: space-between;
 }
 
 .basic-info p{
