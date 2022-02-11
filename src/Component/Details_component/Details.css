@@ -2,8 +2,7 @@
     min-height: 50px;
     display: flex;
     justify-content: space-between;
-    overflow: hidden;
-    
+    overflow: hidden;   
 }
 
 .details-btn .btn-1 {
@@ -16,7 +15,7 @@
     cursor: pointer;
 }
 .details-div {
-    padding: 0 5px 0 30px;
+    padding: 0 20px 0 10px;
 }
 .details-div p {
     margin-top: 0;
