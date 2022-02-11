@@ -4,7 +4,7 @@ import './Shop.css';
 //import data from '../../asset/fakeData/data';
 import Product from '../Product_component/Product';
 import NextProduct20 from '../Product_component/NextProduct20';
-import Cart from '../Cart_section/Cart';
+import Cart from '../Cart_component/Cart';
 
 
 const Shop = () => {
