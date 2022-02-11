@@ -9,7 +9,7 @@ import {
 import './App.css';
 import Navbar from './Component/Nav_secton/Navbar';
 import Shop from './Component/Shop_section/Shop';
-import Cart from './Component/Cart_section/Cart';
+import Cart from './Component/Cart_component/Cart';
 import Error from './Component/Error_page/Error';
 import Account from './Component/Account/Account';
 
@@ -20,7 +20,6 @@ function App() {
     <Router>
       <div>
         <Navbar></Navbar>
-        
         <Shop></Shop>
       </div>
     </Router>
