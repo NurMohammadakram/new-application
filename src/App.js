@@ -18,20 +18,15 @@ function App() {
   
   return (
     <div>
-      <div>
-        <Navbar></Navbar>
-      </div>
-      
+      <Navbar></Navbar>
       <Router>
-        <div>
-          <Routes>
-            <Route path='/' element={<Shop />} />
-            <Route path='/shop' element={<Shop />} />
-            <Route path='/account' element={<Account />} />
-            <Route path='/cart' element={<Cart />} />
-            <Route path='*' element={<Error />} />
-          </Routes>  
-        </div>
+        <Routes>
+          <Route path='/' element={<Shop />} />
+          <Route path='/shop' element={<Shop />} />
+          <Route path='/account' element={<Account />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='*' element={<Error />} />
+        </Routes> 
       </Router>
     </div>
   );
