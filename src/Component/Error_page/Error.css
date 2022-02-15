@@ -2,7 +2,7 @@
     margin: 20px auto;
     text-align: center;
 }
-.err-container h1 {
-    font-size: 120px;
+.err-container .err {
+    font-size: 200px;
     margin: 0;
 }

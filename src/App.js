@@ -1,9 +1,7 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 import './App.css';
@@ -18,21 +16,14 @@ function App() {
   
   return (
     <div>
-      <div>
-        <Navbar></Navbar>
-      </div>
-      
-      <Router>
-        <div>
-          <Routes>
-            <Route path='/' element={<Shop />} />
-            <Route path='/shop' element={<Shop />} />
-            <Route path='/account' element={<Account />} />
-            <Route path='/cart' element={<Cart />} />
-            <Route path='*' element={<Error />} />
-          </Routes>  
-        </div>
-      </Router>
+      <Navbar></Navbar>
+      <Routes>
+        <Route path='/' element={<Shop />} />
+        <Route path='/shop' element={<Shop />} />
+        <Route path='/account' element={<Account />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route path='*' element={<Error />} />
+      </Routes>
     </div>
   );
 }
