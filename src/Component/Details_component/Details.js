@@ -7,7 +7,7 @@ const Details = props => {
         if(trueOrDare) {
             return (
                 <div className='details-btn'>
-                    <div className='details-div'>{details}</div>
+                    <div className='details-div'><p><small>{details}</small></p></div>
                     <button className='btn-2' onClick={handler}>Hide Details: </button>
                 </div>
             )

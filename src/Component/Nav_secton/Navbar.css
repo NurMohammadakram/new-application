@@ -36,7 +36,7 @@
     justify-content: space-between;
     list-style-type: none;
 }
-.navbar-nav .list a{
+.navbar-nav .nav-link{
     padding:3px 10px;
     margin: 0 3px;
     font-size: 18px;
@@ -46,7 +46,7 @@
     text-transform: capitalize;
 }
 
-.list a:hover {
+.navbar-nav .nav-link:hover {
 background-color: white;
 color: rgb(253, 185, 13);
 border-radius: 10px;

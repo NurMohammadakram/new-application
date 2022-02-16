@@ -14,8 +14,8 @@ img {
 }
 .product-info {
     padding: 5px 10px;
+    width: 100%;
 }
-
 .info{
     display: flex;
     justify-content: space-between;
@@ -26,10 +26,6 @@ img {
 }
 .basic-info h4 {
     padding-top: 30px;
-}
-
-.details-info {
-    padding: 0 0 0 20px;
 }
 
 .btn-cart {
