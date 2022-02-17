@@ -12,7 +12,7 @@ const Product = (props) => {
     const [details, setDetails] = useState([]);
    
     const handler = () => {
-        const x = features.map(ft => <p>{ft.description + ': ' + ft.value}</p>);
+        const x = features.map(ft => ft.description + ': ' + ft.value);
         setDetails(x);
         setVisibily(!visibility);
     };
@@ -36,7 +36,6 @@ const Product = (props) => {
                     </div>
                     <div className="details-info">
                         <Details handler={handler} details= {details} trueOrDare= {visibility}></Details>
-                        
                     </div>
                 </div>
             </div>

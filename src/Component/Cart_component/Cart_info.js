@@ -1,18 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Cart.css';
 
 
 const Cart = (props) => {
-    const cartList = [...props.cart];
+    const cartList = props.cart;
+   
     
-    const x = cartList.reduce((obj, item) => {
-        obj = item;
-        return obj;
-    }, {});
-    const {name, img, price, category, stock, features, seller} = x;
-
-    const total = cartList.reduce((total, cart) => total + cart.price, 0);
+    const total = cartList.reduce((total, cart) => total + cart.price * cart.quantity, 0);
     const shipping = cartList.reduce((sum, cart) => sum + cart.shipping, 0);
+    
 
     const tax = total / 10;
     const grandTotal = Math.round(total + shipping + tax)
@@ -30,7 +27,7 @@ const Cart = (props) => {
                 <p>Net Price: ${grandTotal}</p>
             </div>
             <div className="cart-button">
-                <button className='btn-cart'>Preview your Cart</button>
+                <Link to="cart"><button className='btn-cart'>Preview your Cart</button></Link>
             </div>
         </div>
     );

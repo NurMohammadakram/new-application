@@ -7,7 +7,7 @@ import {
 import './App.css';
 import Navbar from './Component/Nav_secton/Navbar';
 import Shop from './Component/Shop_section/Shop';
-import Cart from './Component/Cart_page/Cart_details';
+import Cart from './Component/Cart_page/Cart_review';
 import Error from './Component/Error_page/Error';
 import Account from './Component/Account/Account';
 
@@ -19,9 +19,10 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Shop />} />
-        <Route path='/shop' element={<Shop />} />
-        <Route path='/account' element={<Account />} />
-        <Route path='/cart' element={<Cart />} />
+        <Route path='shop' element={<Shop />} />
+        <Route path='cart' element={<Cart />} />
+        <Route path='account' element={<Account />} />
+        <Route path='cart' element={<Cart />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </div>

@@ -1,7 +1,6 @@
 .details-btn {
     min-height: 50px;
     display: flex;
-    justify-content: space-between;
     overflow: hidden;   
 }
 

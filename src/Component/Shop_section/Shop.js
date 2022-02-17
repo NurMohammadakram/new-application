@@ -4,7 +4,8 @@ import './Shop.css';
 //import data from '../../asset/fakeData/data';
 import Product from '../Product_component/Product';
 import NextProduct20 from '../Product_component/NextProduct20';
-import Cart from '../Cart_component/Cart';
+import Cart from '../Cart_component/Cart_info';
+import { addToDatabaseCart } from '../../asset/utilities/fakedb';
 
 
 const Shop = () => {
@@ -13,13 +14,15 @@ const Shop = () => {
     const [cart, setCart] = useState([]);
 
     const productInfo10 = items.slice(0, 10);
-    const nextProduct20 = items.slice(10, 20)
+    const nextProduct20 = items.slice(10, 20);
     // const nextProduct30 = items.slice(20, 30);
 
-
-    const addCart = (prop) => {
-        const newCart = [...cart, prop]
-        setCart(newCart)
+    const addCart = (item) => {
+        const newCart = [...cart, item];
+        setCart(newCart);
+        const sameProduct = newCart.filter( pd => pd.key === item.key);
+        const count = sameProduct.length;
+        addToDatabaseCart(item.key, count);
     }
 
     const showMoreHandler = () => {
@@ -35,7 +38,7 @@ const Shop = () => {
             <div className="product-container">
                 <div className='product-component-first10'>
                     {
-                        productInfo10.map(item => <Product addCart={addCart} items= {item} key={item.id}></Product>)
+                        productInfo10.map(item => <Product addCart={addCart} items= {item} key={item.key}></Product>)
                     }
                 </div>
                 <div className='product-component-next20'>
