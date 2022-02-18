@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { addToDatabaseCart, getDatabaseCart, removeFromDatabaseCart } from '../../asset/utilities/fakedb';
+import { getDatabaseCart, removeFromDatabaseCart } from '../../asset/utilities/fakedb';
 import data from '../../asset/fakeData/data';
-import Review from '../Review_cart_product/Review_cart_details';
+import Review from '../Review_cart_product/Review_Cart_product';
 import Cart from '../Cart_component/Cart_info';
 
-const Cart_details = () => {
+const CartPageDetails = () => {
     const [cart, setCart] = useState([]);
+    console.log(data);
 
     const handler = (productKey) => {
         const newCart = cart.filter(pd => pd.key !== productKey);
@@ -41,4 +42,4 @@ const Cart_details = () => {
     );
 };
 
-export default Cart_details;
+export default CartPageDetails;

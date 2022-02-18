@@ -3,13 +3,11 @@ import { Link } from 'react-router-dom';
 import './Cart.css';
 
 
-const Cart = (props) => {
+const CartInfo = (props) => {
     const cartList = props.cart;
-   
     
     const total = cartList.reduce((total, cart) => total + cart.price * cart.quantity, 0);
     const shipping = cartList.reduce((sum, cart) => sum + cart.shipping, 0);
-    
 
     const tax = total / 10;
     const grandTotal = Math.round(total + shipping + tax)
@@ -27,10 +25,10 @@ const Cart = (props) => {
                 <p>Net Price: ${grandTotal}</p>
             </div>
             <div className="cart-button">
-                <Link to="cart"><button className='btn-cart'>Preview your Cart</button></Link>
+                <Link to="/cart"><button className='btn-cart'>Preview your Cart</button></Link>
             </div>
         </div>
     );
 };
 
-export default Cart;
+export default CartInfo;

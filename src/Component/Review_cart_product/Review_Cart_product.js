@@ -1,5 +1,4 @@
 import React from 'react';
-import { removeFromDatabaseCart } from '../../asset/utilities/fakedb';
 
 const ReviewCart = (props) => {
     const {name, quantity, key, price} = props.product;
@@ -11,7 +10,7 @@ const ReviewCart = (props) => {
                 <h4>{name}</h4>
                 <p>quantity: {quantity}</p>
                 <p>each product price: {price}</p>
-                <p>total price: {price} * {quantity} = {price * quantity}</p>
+                <p>total price: {price * quantity}</p>
                 <button onClick={() => props.handler(key)} className='btn-cart'>Remove</button>
             </div>
         </div>

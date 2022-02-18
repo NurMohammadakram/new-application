@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import data2 from '../../asset/fakeData/data2.json';
 import './Shop.css';
-//import data from '../../asset/fakeData/data';
+import data from '../../asset/fakeData/data';
 import Product from '../Product_component/Product';
 import NextProduct20 from '../Product_component/NextProduct20';
 import Cart from '../Cart_component/Cart_info';
-import { addToDatabaseCart } from '../../asset/utilities/fakedb';
+import { addToDatabaseCart, getDatabaseCart } from '../../asset/utilities/fakedb';
 
 
 const Shop = () => {
@@ -18,11 +18,22 @@ const Shop = () => {
     // const nextProduct30 = items.slice(20, 30);
 
     const addCart = (item) => {
-        const newCart = [...cart, item];
+        const key = item.key;
+        const sameProduct = cart.find(pd => pd.key === key);
+        let count = 1;
+        let newCart;
+        if(sameProduct) {
+            count = item.quantity + 1;
+            sameProduct.quantity = count;
+            const cartItemsBefore = cart.filter(pd => pd.key !== key);
+            newCart = [...cartItemsBefore, sameProduct];
+        }
+        else {
+            item.quantity = 1;
+            newCart = [...cart, item];
+        }
         setCart(newCart);
-        const sameProduct = newCart.filter( pd => pd.key === item.key);
-        const count = sameProduct.length;
-        addToDatabaseCart(item.key, count);
+        addToDatabaseCart(key, count);
     }
 
     const showMoreHandler = () => {
@@ -30,7 +41,16 @@ const Shop = () => {
     };
 
     useEffect( () => {
-        setItems(data2)
+        setItems(data2);
+
+        const dbData = getDatabaseCart();
+        const productKeys = Object.keys(dbData);
+        const products = productKeys.map(dbkey => {
+            const product = data2.find(pd => pd.key === dbkey);
+            product.quantity = dbData[dbkey];
+            return product;
+        })
+        setCart(products);
     }, []);
 
     return (
@@ -38,7 +58,7 @@ const Shop = () => {
             <div className="product-container">
                 <div className='product-component-first10'>
                     {
-                        productInfo10.map(item => <Product addCart={addCart} items= {item} key={item.key}></Product>)
+                        productInfo10.map(item => <Product addCart={addCart} item= {item} key={item.key}></Product>)
                     }
                 </div>
                 <div className='product-component-next20'>
