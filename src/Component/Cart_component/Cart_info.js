@@ -25,7 +25,9 @@ const CartInfo = (props) => {
                 <p>Net Price: ${grandTotal}</p>
             </div>
             <div className="cart-button">
-                <Link to="/cart"><button className='btn-cart'>Preview your Cart</button></Link>
+                {
+                    props.children
+                }
             </div>
         </div>
     );

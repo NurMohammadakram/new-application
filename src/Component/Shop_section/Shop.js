@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import data2 from '../../asset/fakeData/data2.json';
 import './Shop.css';
+import data2 from '../../asset/fakeData/data2.json';
 import data from '../../asset/fakeData/data';
 import Product from '../Product_component/Product';
 import NextProduct20 from '../Product_component/NextProduct20';
 import Cart from '../Cart_component/Cart_info';
 import { addToDatabaseCart, getDatabaseCart } from '../../asset/utilities/fakedb';
+import { Link } from 'react-router-dom';
 
 
 const Shop = () => {
@@ -46,7 +47,7 @@ const Shop = () => {
         const dbData = getDatabaseCart();
         const productKeys = Object.keys(dbData);
         const products = productKeys.map(dbkey => {
-            const product = data2.find(pd => pd.key === dbkey);
+            const product = data.find(pd => pd.key === dbkey);
             product.quantity = dbData[dbkey];
             return product;
         })
@@ -66,7 +67,9 @@ const Shop = () => {
                 </div>
             </div>
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart cart={cart}>
+                    <Link to="/cart"><button className='btn-cart'>Preview your Cart</button></Link>
+                </Cart>
             </div>
         </div>
     );

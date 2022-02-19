@@ -10,7 +10,7 @@ const ReviewCart = (props) => {
                 <h4>{name}</h4>
                 <p>quantity: {quantity}</p>
                 <p>each product price: {price}</p>
-                <p>total price: {price * quantity}</p>
+                <p>total price: {Math.round(price * quantity)}</p>
                 <button onClick={() => props.handler(key)} className='btn-cart'>Remove</button>
             </div>
         </div>

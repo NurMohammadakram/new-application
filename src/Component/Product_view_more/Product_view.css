@@ -1,0 +1,32 @@
+.viewContainer {
+    margin: 40px auto;
+    padding: 10px;
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    box-shadow: 0px 5px 20px 5px rgba(74,70,70,0.35);
+}
+.imageContainer {
+    padding: 20px;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-self: center;
+    overflow: hidden;
+}
+.imageContainer .img {
+    min-width: 100%;
+    height: auto;
+    overflow: hidden;
+    transition: 0.7s all ease-in-out 0.5s;
+}
+.imageContainer .img:hover {
+    transform: scale(1.5);
+}
+.contentContainer {
+    width: 50%;
+    padding: 20px;
+    margin-left: 10px;
+}
