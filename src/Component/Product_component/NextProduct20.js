@@ -11,7 +11,7 @@ const NextProduct20 = (props) => {
         return (
             <div>
                 {
-                    nextProduct20.map(item => <Product addCart={addCart} items= {item} key={item.id}></Product>)
+                    nextProduct20.map(item => <Product addCart={addCart} items= {item} key={item.key}></Product>)
                 }
             </div>
         )

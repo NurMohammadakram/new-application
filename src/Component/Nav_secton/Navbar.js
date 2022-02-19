@@ -13,7 +13,7 @@ function Navbar(props) {
     }
     return (
         <nav className='navbar shadow'>
-            <div><img className='brand' src={logo} alt=""/> </div>
+            <div><Link to='/'><img className='brand' src={logo} alt=""/></Link></div>
             <div>
                 <input onChange={handler} id='searchbar' placeholder='Search for products by their catagory' type="text" />
                 <button id='btn' onClick={handler}><span><FontAwesomeIcon icon={faSearch} /></span> search</button>

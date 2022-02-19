@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Shop.css';
 import data2 from '../../asset/fakeData/data2.json';
-import data from '../../asset/fakeData/data';
+//import data from '../../asset/fakeData/data';
 import Product from '../Product_component/Product';
 import NextProduct20 from '../Product_component/NextProduct20';
 import Cart from '../Cart_component/Cart_info';
@@ -21,11 +21,11 @@ const Shop = () => {
     const addCart = (item) => {
         const key = item.key;
         const sameProduct = cart.find(pd => pd.key === key);
-        let count = 1;
+        let quantity = 1;
         let newCart;
         if(sameProduct) {
-            count = item.quantity + 1;
-            sameProduct.quantity = count;
+            quantity = item.quantity + 1;
+            sameProduct.quantity = quantity;
             const cartItemsBefore = cart.filter(pd => pd.key !== key);
             newCart = [...cartItemsBefore, sameProduct];
         }
@@ -34,7 +34,7 @@ const Shop = () => {
             newCart = [...cart, item];
         }
         setCart(newCart);
-        addToDatabaseCart(key, count);
+        addToDatabaseCart(key, quantity);
     }
 
     const showMoreHandler = () => {
@@ -47,7 +47,7 @@ const Shop = () => {
         const dbData = getDatabaseCart();
         const productKeys = Object.keys(dbData);
         const products = productKeys.map(dbkey => {
-            const product = data.find(pd => pd.key === dbkey);
+            const product = data2.find(pd => pd.key === dbkey);
             product.quantity = dbData[dbkey];
             return product;
         })
@@ -59,7 +59,7 @@ const Shop = () => {
             <div className="product-container">
                 <div className='product-component-first10'>
                     {
-                        productInfo10.map(item => <Product addCart={addCart} item= {item} key={item.key}></Product>)
+                        productInfo10.map(item => <Product addCart={addCart} items= {item} key={item.key}></Product>)
                     }
                 </div>
                 <div className='product-component-next20'>

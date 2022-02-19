@@ -7,7 +7,7 @@ import Details from '../Details_component/Details';
 import "./Product.css";
 
 const Product = (props) => {
-    const product = props.item;
+    const product = props.items;
     const {name, img, price, category, stock, features, seller, key}= product;
     const [visibility, setVisibily] = useState(false);
     const [details, setDetails] = useState([]);
